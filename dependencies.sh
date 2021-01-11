@@ -39,3 +39,4 @@ fi
 cd WhatsMyName;
 python3 -m pip install -r requirements.txt;
 echo "WhatsMyName is up to date"
+

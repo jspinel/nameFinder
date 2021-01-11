@@ -13,6 +13,9 @@ then
 fi
 
 
+#Get local running directory
+$source = `dirname "$0"`
+
 # If folder does not exist in working directory, create it
 # Then run the tools from within that directory
 
@@ -24,6 +27,7 @@ else
     cd "$@";
 fi
 
+
 # Sherlock
 echo "Running sherlock";
 python3 /usr/bin/sherlock/sherlock -o sherlock.txt "$@";
@@ -33,3 +37,5 @@ sleep 1;
 # WhatsMyName
 python3 /usr/bin/WhatsMyName/web_accounts_list_checker_threading.py -in /usr/bin/WhatsMyName/web_accounts_list.json -of whatsmyname.txt -u "$@";
 echo "Ran both tests successfully";
+
+perl -e `dirname "$0"`/parser.pl;

@@ -38,4 +38,5 @@ sleep 1;
 python3 /usr/bin/WhatsMyName/web_accounts_list_checker_threading.py -in /usr/bin/WhatsMyName/web_accounts_list.json -of whatsmyname.txt -u "$@";
 echo "Ran both tests successfully";
 
-perl -e `dirname "$0"`/parser.pl;
+# perl -e `dirname "$0"`/parser.pl;
+# NOT WORKING

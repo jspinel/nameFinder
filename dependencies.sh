@@ -34,7 +34,7 @@ then
     echo "Done Updating";
 else
     echo "Installing WhatsMyName";
-    git clone https://github.com/WebBreacher/WhatsMyName.git;
+    git clone https://github.com/jspinel/WhatsMyName.git;
 fi
 cd WhatsMyName;
 python3 -m pip install -r requirements.txt;

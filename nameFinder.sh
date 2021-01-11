@@ -29,9 +29,7 @@ echo "Running sherlock";
 python3 /usr/bin/sherlock/sherlock -o sherlock.txt "$@";
 echo "Ran sherlock";
 sleep 1;
-# WhatsMyName
 
-cp /usr/bin/WhatsMyName/web_accounts_list.json . ;
-python3 /usr/bin/WhatsMyName/web_accounts_list_checker_threading.py -o -u "$@";
-rm web_accounts_list.json;
+# WhatsMyName
+python3 /usr/bin/WhatsMyName/web_accounts_list_checker_threading.py -in /usr/bin/WhatsMyName/web_accounts_list.json -of whatsmyname.txt -u "$@";
 echo "Ran both tests successfully";

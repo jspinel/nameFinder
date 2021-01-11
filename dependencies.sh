@@ -5,7 +5,8 @@ echo "$(whoami)"
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 # Install Sherlock
-cd /opt/;
+cd /usr/bin;
+
 
 if [[ -d sherlock ]]
 then
@@ -23,7 +24,7 @@ python3 -m pip install -r requirements.txt;
 echo "Sherlock is up to date";
 
 
-cd /opt;
+cd /usr/bin;
 if [[ -d WhatsMyName ]]
 then
     echo "Updating WhatsMyName";

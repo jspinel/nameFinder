@@ -5,6 +5,7 @@ use warnings;
 
 use HTTP::Tiny;
 
+
 my $sherlock = "sherlock.txt";
 my $whatsmyname = "whatsmyname.txt";
 
@@ -18,15 +19,14 @@ while (my $line = <$fh>){
     chomp $line;
     $line =~ s/www.//;
     $sites{$line}++ unless $line !~ /https/;
-    $counter++ unless $line !~ /https/;
     }
 close $fh;
 
 open ($fh, '<', $whatsmyname) or die $!;
 while (my $line = <$fh>){
     chomp $line;
+    $line =~ s/www.//;
     $sites{$line}++ unless $line !~ /https/;
-    $counter++ unless $line !~ /https/;
     }
 close $fh;
 
@@ -42,11 +42,9 @@ foreach (@sites){
         print $fh "$_\n";
     }
     else{
-        print("Failed request on $_\n");
+        # Eliminates 404 errors
         delete($sites{$_});
     }
 }
 
-my $unique = keys %sites;
-print("Total results: $counter\n");
-print("Unique sites: $unique\n");
+

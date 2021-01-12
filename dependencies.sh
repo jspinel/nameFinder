@@ -53,7 +53,7 @@ else
     echo "Installing nameFinder in /usr/bin";
     git clone https://github.com/jspinel/nameFinder.git
     chmod a+x nameFinder.sh
-    chmod a+x nameFinder
+    chmod a+x ./nameFinder
     cp nameFinder /usr/bin/.
 fi
 

@@ -51,9 +51,10 @@ then
     echo "Done Updating";
 else
     echo "Installing nameFinder in /usr/bin";
-    git clone https://github.com/jspinel/nameFinder.git
-    chmod a+x nameFinder.sh
-    chmod a+x binary/nameFinder
-    cp ./nameFinder /usr/bin/.
+    git clone https://github.com/jspinel/nameFinder.git;
+    cd nameFinder;
+    chmod a+x nameFinder.sh;
+    chmod a+x binary/nameFinder;
+    cp binary/nameFinder /usr/bin/nameFinder ;
 fi
 

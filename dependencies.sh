@@ -54,6 +54,6 @@ else
     git clone https://github.com/jspinel/nameFinder.git
     chmod a+x nameFinder.sh
     chmod a+x binary/nameFinder
-    cp nameFinder /usr/bin/.
+    cp ./nameFinder /usr/bin/.
 fi
 

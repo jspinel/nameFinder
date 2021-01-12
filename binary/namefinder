@@ -1,0 +1,4 @@
+#! /usr/bin/bash
+
+exec /usr/share/nameFinder/nameFinder.sh "$@"
+    

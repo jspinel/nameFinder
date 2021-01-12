@@ -5,7 +5,7 @@ echo "$(whoami)"
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 # Install Sherlock
-cd /usr/bin;
+cd /usr/share;
 
 
 if [[ -d sherlock ]]
@@ -24,7 +24,7 @@ python3 -m pip install -r requirements.txt;
 echo "Sherlock is up to date";
 
 
-cd /usr/bin;
+cd /usr/share;
 if [[ -d WhatsMyName ]]
 then
     echo "Updating WhatsMyName";
@@ -34,9 +34,23 @@ then
     echo "Done Updating";
 else
     echo "Installing WhatsMyName";
-    git clone https://github.com/jspinel/WhatsMyName.git;
+    git clone https://github.com/webbreacher/WhatsMyName.git;
 fi
 cd WhatsMyName;
 python3 -m pip install -r requirements.txt;
 echo "WhatsMyName is up to date"
+
+
+cd /usr/share;
+if [[ -d nameFinder ]]
+then
+    echo "Updating nameFinder";
+    cd nameFinder
+    git pull -q;
+    cd ..;
+    echo "Done Updating";
+else
+    echo "Installing nameFinder in /usr/bin";
+    git clone https://github.com/jspinel/nameFinder.git
+fi
 

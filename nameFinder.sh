@@ -34,4 +34,8 @@ sleep 1;
 python3 /usr/share/WhatsMyName/web_accounts_list_checker_threading.py -in /usr/share/WhatsMyName/web_accounts_list.json -of whatsmyname.txt -u "$@";
 echo "Ran both tests successfully";
 
-perl /usr/share/nameFinder/parser.pl
+perl /usr/share/nameFinder/parser.pl;
+
+echo "Removed Duplicates & 404 errors";
+
+./usr/share/EyeWitness/Python/EyeWitness.py -f unique.txt --timeout 20 --max-retries 10 --web -d EyeWitness/

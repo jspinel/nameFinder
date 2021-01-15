@@ -42,6 +42,23 @@ echo "WhatsMyName is up to date"
 
 
 cd /usr/share;
+if [[ -d EyeWitness]]
+then
+    echo "Updating Eyewitness"
+    git pull -q;
+    cd ..;
+    echo "Done updating";
+else
+    echo "Installing Eyewitness";
+    git clone https://github.com/ChrisTruncer/EyeWitness.git;
+    cd EyeWitness/
+    ./Python/setup/setup.sh;
+    apt install xvfb;
+fi
+echo "EyeWitness is up to date"
+    
+
+cd /usr/share;
 if [[ -d nameFinder ]]
 then
     echo "Updating nameFinder";
@@ -55,6 +72,6 @@ else
     cd nameFinder;
     chmod a+x nameFinder.sh;
     chmod a+x binary/nameFinder;
-    cp binary/nameFinder /usr/bin/nameFinder ;
+    cp binary/namefinder /usr/bin/namefinder ;
 fi
 

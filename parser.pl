@@ -13,6 +13,7 @@ my %sites;
 my @sites;
 my $counter=0;
 
+print("Removing duplicate entries\n");
 
 open (my $fh, '<', $sherlock) or die $!;
 while (my $line = <$fh>){
@@ -33,11 +34,13 @@ close $fh;
 
 
 
+print("Removing Error 404 False Positives\n");
 @sites = sort keys %sites;
 
 open ($fh, '>', 'unique.txt') or die $!;
 foreach (@sites){
     my $response = HTTP::Tiny->new->get($_);
+    print("$_\n");
     if ($response->{success}){
         print $fh "$_\n";
     }
@@ -47,4 +50,4 @@ foreach (@sites){
     }
 }
 
-
+print("New list available at unique.txt\n");

@@ -42,7 +42,7 @@ echo "WhatsMyName is up to date"
 
 
 cd /usr/share;
-if [[ -d EyeWitness]]
+if [[ -d EyeWitness ]]
 then
     echo "Updating Eyewitness"
     git pull -q;
@@ -71,7 +71,8 @@ else
     git clone https://github.com/jspinel/nameFinder.git;
     cd nameFinder;
     chmod a+x nameFinder.sh;
-    chmod a+x binary/nameFinder;
-    cp binary/namefinder /usr/bin/namefinder ;
+
+    cp -f binary/namefinder /usr/bin/namefinder ;
+    chmod a+x /usr/bin/namefinder;
 fi
 

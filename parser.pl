@@ -46,10 +46,7 @@ foreach (@sites){
     if ($response->{success}){
         print $fh "$_\n";
     }
-    else{
-        # Eliminates 404 errors
-        delete($sites{$_});
-    }
 }
+close $fh;
 
 print("New list available at unique.txt\n");

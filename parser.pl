@@ -20,8 +20,6 @@ while (my $line = <$fh>){
     chomp $line;
     # Remove www from any adress to avoid confusion
     $line =~ s/www.//;
-    # Remove trailing /
-    $line =~ s/\/$//;
     $sites{$line}++ unless $line !~ /https/;
     }
 close $fh;

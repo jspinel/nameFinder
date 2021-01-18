@@ -18,7 +18,10 @@ print("Removing duplicate entries\n");
 open (my $fh, '<', $sherlock) or die $!;
 while (my $line = <$fh>){
     chomp $line;
+    # Remove www from any adress to avoid confusion
     $line =~ s/www.//;
+    # Remove trailing /
+    $line =~ s/\/$//;
     $sites{$line}++ unless $line !~ /https/;
     }
 close $fh;
@@ -40,7 +43,6 @@ print("Removing Error 404 False Positives\n");
 open ($fh, '>', 'unique.txt') or die $!;
 foreach (@sites){
     my $response = HTTP::Tiny->new->get($_);
-    print("$_\n");
     if ($response->{success}){
         print $fh "$_\n";
     }

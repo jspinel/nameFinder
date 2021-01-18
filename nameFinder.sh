@@ -38,4 +38,4 @@ perl /usr/share/nameFinder/parser.pl;
 
 echo "Removed Duplicates & 404 errors";
 
-python3 /usr/share/EyeWitness/Python/EyeWitness.py -f unique.txt --timeout 20 --max-retries 10 --web -d EyeWitness/
+#python3 /usr/share/EyeWitness/Python/EyeWitness.py -f unique.txt --timeout 20 --max-retries 10 --web -d EyeWitness/

@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-echo "$(whoami)"
 
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
@@ -44,7 +43,8 @@ echo "WhatsMyName is up to date"
 cd /usr/share;
 if [[ -d EyeWitness ]]
 then
-    echo "Updating Eyewitness"
+    echo "Updating Eyewitness";
+    cd EyeWitness;
     git pull -q;
     cd ..;
     echo "Done updating";
@@ -53,7 +53,7 @@ else
     git clone https://github.com/ChrisTruncer/EyeWitness.git;
     cd EyeWitness/
     ./Python/setup/setup.sh;
-    apt install xvfb;
+    apt install xvfb -y;
 fi
 echo "EyeWitness is up to date"
     
@@ -71,8 +71,14 @@ else
     git clone https://github.com/jspinel/nameFinder.git;
     cd nameFinder;
     chmod a+x nameFinder.sh;
+fi
 
-    cp -f binary/namefinder /usr/bin/namefinder ;
-    chmod a+x /usr/bin/namefinder;
+
+cd /usr/bin
+
+if [[ ! -e namefinder ]]
+then
+    cp /usr/share/nameFinder/binary/namefinder namefinder
+    chmod a+x namefinder
 fi
 

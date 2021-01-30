@@ -26,7 +26,7 @@ fi
 
 # Sherlock
 echo "Running sherlock";
-python3 /usr/share/sherlock/sherlock -o sherlock.txt "$@";
+python3 /usr/share/sherlock/sherlock.py -o sherlock.txt "$@";
 echo "Ran sherlock";
 sleep 1;
 

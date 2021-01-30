@@ -31,7 +31,7 @@ echo "Ran sherlock";
 sleep 1;
 
 # WhatsMyName
-python3 /usr/share/WhatsMyName/web_accounts_list_checker_threading.py -in /usr/share/WhatsMyName/web_accounts_list.json -of whatsmyname.txt -u "$@";
+python3 /usr/share/WhatsMyName/web_accounts_list_checker.py -in /usr/share/WhatsMyName/web_accounts_list.json -of whatsmyname.txt -u "$@";
 echo "Ran both tests successfully";
 
 perl /usr/share/nameFinder/parser.pl;
